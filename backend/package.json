@@ -1,0 +1,28 @@
+{
+  "name": "stocknarrative-worker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --env local --ip 127.0.0.1 --port 8787 --env-file ../.dev.vars",
+    "build": "tsc --noEmit && wrangler deploy --dry-run --env local --outdir .wrangler/deploy-preview",
+    "test": "vitest run",
+    "db:migrate:local": "wrangler d1 migrations apply stocknarrative-db --local --env local",
+    "import:portfolio": "tsx scripts/import-portfolio.ts",
+    "import:market-data": "tsx scripts/import-market-data.ts"
+  },
+  "dependencies": {
+    "@stocknarrative/shared": "workspace:*",
+    "csv-parse": "^6.1.0",
+    "hono": "^4.7.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260930.1",
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "~5.6.3",
+    "vitest": "^3.0.7",
+    "wrangler": "^4.38.0"
+  }
+}

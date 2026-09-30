@@ -1,0 +1,12 @@
+{
+  "name": "stocknarrative-ai",
+  "private": true,
+  "packageManager": "pnpm@12.8.1",
+  "scripts": {
+    "dev:frontend": "pnpm --dir frontend dev",
+    "dev:backend": "pnpm --dir backend dev",
+    "build:frontend": "pnpm --dir frontend build",
+    "build:backend": "pnpm --dir backend build",
+    "test:backend": "pnpm --dir backend test"
+  }
+}

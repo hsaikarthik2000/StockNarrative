@@ -1,0 +1,81 @@
+name = "stocknarrative-api"
+main = "src/index.ts"
+compatibility_date = "2026-09-30"
+workers_dev = true
+
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "stocknarrative-db"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "00000000000000000000000000000000"
+
+[[durable_objects.bindings]]
+name = "STOCK_SESSION"
+class_name = "StockSessionDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["StockSessionDO"]
+
+[env.local]
+name = "stocknarrative-api-local"
+
+[env.local.vars]
+ENVIRONMENT = "development"
+LOCAL_DEV_IMPORT_ENABLED = "true"
+ALPHA_VANTAGE_MARKET_ENTITLEMENT = "eod"
+MARKET_DATA_SOURCE = "local"
+CORS_ORIGIN = "http://localhost:5173"
+
+[env.local.ai]
+binding = "AI"
+
+[[env.local.d1_databases]]
+binding = "DB"
+database_name = "stocknarrative-db"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[[env.local.kv_namespaces]]
+binding = "CACHE"
+id = "00000000000000000000000000000000"
+
+[[env.local.durable_objects.bindings]]
+name = "STOCK_SESSION"
+class_name = "StockSessionDO"
+
+[env.production]
+name = "stocknarrative-api-production"
+
+[env.production.vars]
+ENVIRONMENT = "production"
+PUBLIC_DEMO_MODE = "true"
+DEMO_SEED_ENABLED = "false"
+LOCAL_DEV_IMPORT_ENABLED = "false"
+MARKET_DATA_SOURCE = "local"
+ALPHA_VANTAGE_MARKET_ENTITLEMENT = "eod"
+CORS_ORIGIN = "https://stocknarrative.pages.dev"
+
+[env.production.ai]
+binding = "AI"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "stocknarrative-db"
+database_id = "73ebc040-3ff1-456f-a1c8-94e73ccc505c"
+migrations_dir = "migrations"
+
+[[env.production.kv_namespaces]]
+binding = "CACHE"
+id = "2669caae104c43e89bce47e352e8ba57"
+
+[[env.production.durable_objects.bindings]]
+name = "STOCK_SESSION"
+class_name = "StockSessionDO"

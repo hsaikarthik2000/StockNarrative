@@ -1,0 +1,14 @@
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+**/*.tsbuildinfo
+.dev.vars
+.dev.vars.*
+**/.dev.vars
+**/.dev.vars.*
+.wrangler/
+**/.wrangler/
+assets/portfolio_Data.csv
+assets/portfolio_Data.csv.txt
+*.local
